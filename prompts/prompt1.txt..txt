@@ -1,0 +1,3 @@
+prompt1:Actua como desarrolador web experto en html y css , ayudame a editar mi archivo index.html para mi portafolio, necesito agregar los dos hipervinculos a mis proyectos juego de limones y juego cazando, mi nombre como autor Jhonny Zaruma , nombre del curso krakedev, la descripcion breve que tengo en mi index.htmL.
+prompt2:agregar un estilo mas peculiar como videojuegos y que mi portafolio se vea como diseño de que este menú contendrá todos los proyectos desarrollados por mi, dame el codigo html completo con css basico bonito, responsive y moderno, usa colores llamativos.
+prompt3:agregar una imagen/portada diferente para cada juego, animacion de fondo tipo cyberpunk y un boton"ver todos los proyectos"
