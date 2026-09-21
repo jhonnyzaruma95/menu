@@ -1,794 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>JhonnyDev | Gaming Portfolio</title>
-
-    <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-
-        /* =========================
-           VARIABLES
-        ========================= */
-
-        :root {
-            --bg: #050510;
-            --bg-card: #0d1020;
-
-            --cyan: #00f7ff;
-            --pink: #ff00cc;
-            --purple: #8a2be2;
-            --yellow: #ffe600;
-
-            --white: #ffffff;
-            --gray: #a6abc4;
-
-            --border: rgba(0, 247, 255, 0.35);
-
-            --glow-cyan:
-                0 0 5px #00f7ff,
-                0 0 15px #00f7ff,
-                0 0 30px rgba(0,247,255,.5);
-
-            --glow-pink:
-                0 0 5px #ff00cc,
-                0 0 15px #ff00cc,
-                0 0 30px rgba(255,0,204,.5);
-        }
-
-
-        /* =========================
-           RESET
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(0,247,255,.10), transparent 30%),
-                radial-gradient(circle at 80% 70%, rgba(255,0,204,.10), transparent 30%),
-                var(--bg);
-
-            color: var(--white);
-
-            min-height: 100vh;
-
-            overflow-x: hidden;
-        }
-
-
-        /* =========================
-           GRID GAMER
-        ========================= */
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-
-            background-image:
-                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-
-            background-size: 40px 40px;
-
-            pointer-events: none;
-            z-index: -1;
-        }
-
-
-        /* =========================
-           CONTENEDOR
-        ========================= */
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-
-            margin: auto;
-            padding: 40px 0 60px;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            text-align: center;
-
-            padding: 40px 20px;
-
-            position: relative;
-        }
-
-
-        .tag {
-            display: inline-block;
-
-            padding: 8px 18px;
-
-            border: 1px solid var(--cyan);
-            border-radius: 30px;
-
-            color: var(--cyan);
-
-            font-family: 'Orbitron', sans-serif;
-
-            font-size: .75rem;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 25px;
-
-            box-shadow: var(--glow-cyan);
-        }
-
-
-        .logo {
-            width: 100px;
-            height: 100px;
-
-            margin: auto;
-            margin-bottom: 25px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(135deg,
-                var(--cyan),
-                var(--purple),
-                var(--pink));
-
-            font-family: 'Orbitron', sans-serif;
-
-            font-size: 2.5rem;
-            font-weight: 900;
-
-            color: white;
-
-            box-shadow:
-                0 0 15px var(--cyan),
-                0 0 35px var(--purple),
-                0 0 60px rgba(255,0,204,.4);
-        }
-
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-
-            font-size: clamp(2.2rem, 6vw, 4.5rem);
-
-            text-transform: uppercase;
-
-            letter-spacing: 3px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--cyan),
-                    white,
-                    var(--pink)
-                );
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-
-            margin-bottom: 10px;
-        }
-
-
-        .nickname {
-            color: var(--yellow);
-
-            font-family: 'Orbitron', sans-serif;
-
-            letter-spacing: 4px;
-
-            font-size: 1rem;
-
-            text-shadow: 0 0 10px var(--yellow);
-        }
-
-
-        .subtitle {
-            max-width: 700px;
-
-            margin: 25px auto 0;
-
-            color: var(--gray);
-
-            font-size: 1.1rem;
-
-            line-height: 1.7;
-        }
-
-
-        /* =========================
-           CURSO
-        ========================= */
-
-        .course {
-            margin: 30px auto 50px;
-
-            max-width: 850px;
-
-            padding: 20px;
-
-            text-align: center;
-
-            border: 1px solid var(--border);
-
-            background: rgba(13,16,32,.75);
-
-            backdrop-filter: blur(10px);
-
-            border-radius: 15px;
-
-            box-shadow: 0 0 25px rgba(0,247,255,.08);
-        }
-
-
-        .course span {
-            color: var(--cyan);
-
-            font-family: 'Orbitron', sans-serif;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-        }
-
-
-        /* =========================
-           TITULO PROYECTOS
-        ========================= */
-
-        .projects-title {
-            text-align: center;
-
-            margin-bottom: 30px;
-        }
-
-
-        .projects-title h2 {
-            font-family: 'Orbitron', sans-serif;
-
-            font-size: 1.8rem;
-
-            color: white;
-
-            letter-spacing: 3px;
-
-            text-shadow: var(--glow-cyan);
-        }
-
-
-        .projects-title p {
-            margin-top: 10px;
-
-            color: var(--gray);
-        }
-
-
-        /* =========================
-           GRID PROYECTOS
-        ========================= */
-
-        .projects {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
-
-            gap: 30px;
-        }
-
-
-        /* =========================
-           CARD
-        ========================= */
-
-        .card {
-            position: relative;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(13,16,32,.95),
-                    rgba(8,10,20,.95)
-                );
-
-            border: 1px solid rgba(0,247,255,.25);
-
-            border-radius: 20px;
-
-            padding: 30px;
-
-            overflow: hidden;
-
-            transition:
-                transform .35s ease,
-                border-color .35s ease,
-                box-shadow .35s ease;
-        }
-
-
-        .card::before {
-            content: "";
-
-            position: absolute;
-
-            width: 150px;
-            height: 150px;
-
-            background: var(--cyan);
-
-            filter: blur(100px);
-
-            opacity: .08;
-
-            top: -70px;
-            right: -70px;
-        }
-
-
-        .card:hover {
-            transform: translateY(-10px);
-
-            border-color: var(--cyan);
-
-            box-shadow:
-                0 0 15px rgba(0,247,255,.4),
-                0 0 40px rgba(0,247,255,.12);
-        }
-
-
-        .card:nth-child(2):hover {
-            border-color: var(--pink);
-
-            box-shadow:
-                0 0 15px rgba(255,0,204,.4),
-                0 0 40px rgba(255,0,204,.12);
-        }
-
-
-        /* =========================
-           ICONO
-        ========================= */
-
-        .game-icon {
-            width: 75px;
-            height: 75px;
-
-            border-radius: 18px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            font-size: 2.5rem;
-
-            margin-bottom: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(0,247,255,.2),
-                    rgba(138,43,226,.25)
-                );
-
-            border: 1px solid var(--cyan);
-
-            box-shadow: var(--glow-cyan);
-        }
-
-
-        .card:nth-child(2) .game-icon {
-            border-color: var(--pink);
-
-            box-shadow: var(--glow-pink);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,0,204,.2),
-                    rgba(138,43,226,.25)
-                );
-        }
-
-
-        /* =========================
-           CARD TEXTO
-        ========================= */
-
-        .card h3 {
-            font-family: 'Orbitron', sans-serif;
-
-            font-size: 1.25rem;
-
-            margin-bottom: 12px;
-
-            color: var(--white);
-
-            letter-spacing: 1px;
-        }
-
-
-        .card p {
-            color: var(--gray);
-
-            line-height: 1.7;
-
-            margin-bottom: 25px;
-
-            min-height: 90px;
-        }
-
-
-        /* =========================
-           TECNOLOGIAS
-        ========================= */
-
-        .tech {
-            display: flex;
-
-            gap: 8px;
-
-            flex-wrap: wrap;
-
-            margin-bottom: 25px;
-        }
-
-
-        .tech span {
-            padding: 5px 10px;
-
-            border-radius: 5px;
-
-            font-size: .75rem;
-
-            background: rgba(0,247,255,.08);
-
-            border: 1px solid rgba(0,247,255,.25);
-
-            color: var(--cyan);
-        }
-
-
-        .card:nth-child(2) .tech span {
-            color: var(--pink);
-
-            border-color: rgba(255,0,204,.3);
-
-            background: rgba(255,0,204,.08);
-        }
-
-
-        /* =========================
-           BOTON
-        ========================= */
-
-        .btn {
-            display: block;
-
-            text-align: center;
-
-            padding: 13px 20px;
-
-            border-radius: 8px;
-
-            text-decoration: none;
-
-            color: #050510;
-
-            font-weight: 800;
-
-            font-family: 'Orbitron', sans-serif;
-
-            letter-spacing: 1px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--cyan),
-                    #00aaff
-                );
-
-            transition: .3s;
-
-            box-shadow: 0 0 15px rgba(0,247,255,.3);
-        }
-
-
-        .btn:hover {
-            transform: scale(1.04);
-
-            box-shadow: var(--glow-cyan);
-        }
-
-
-        .card:nth-child(2) .btn {
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--pink),
-                    var(--purple)
-                );
-
-            color: white;
-        }
-
-
-        .card:nth-child(2) .btn:hover {
-            box-shadow: var(--glow-pink);
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            text-align: center;
-
-            margin-top: 70px;
-
-            padding-top: 25px;
-
-            border-top: 1px solid rgba(255,255,255,.1);
-
-            color: var(--gray);
-
-            font-size: .9rem;
-        }
-
-
-        footer strong {
-            color: var(--cyan);
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 600px) {
-
-            .container {
-                width: 92%;
-                padding-top: 20px;
-            }
-
-            header {
-                padding: 25px 10px;
-            }
-
-            .logo {
-                width: 80px;
-                height: 80px;
-
-                font-size: 2rem;
-            }
-
-            .nickname {
-                font-size: .8rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .course {
-                font-size: .95rem;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .card {
-                padding: 25px;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JhonnyDev | Portafolio Gamer</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#050510;--card:#0c1020;--cyan:#00f7ff;--pink:#ff00cc;
+  --purple:#8a2be2;--yellow:#ffe600;--white:#fff;--gray:#a6abc4;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Rajdhani',sans-serif;color:var(--white);min-height:100vh;overflow-x:hidden;
+  background:radial-gradient(circle at 20% 10%,#00f7ff14,transparent 30%),radial-gradient(circle at 80% 70%,#ff00cc16,transparent 30%),var(--bg);
+}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-3;
+  background-image:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);
+  background-size:45px 45px;animation:gridMove 14s linear infinite;
+}
+body:after{
+  content:"";position:fixed;inset:-50%;z-index:-2;
+  background:repeating-linear-gradient(115deg,transparent 0 90px,#00f7ff08 91px 93px,transparent 94px 180px);
+  animation:scan 18s linear infinite;
+}
+@keyframes gridMove{to{background-position:45px 45px}}
+@keyframes scan{to{transform:translate(120px,80px)}}
+@keyframes pulse{50%{opacity:.55;transform:scale(1.04)}}
+.container{width:90%;max-width:1150px;margin:auto;padding:35px 0 60px}
+header{text-align:center;padding:30px 10px 45px}
+.badge{display:inline-block;padding:8px 18px;border:1px solid var(--cyan);border-radius:30px;color:var(--cyan);font:700 .75rem Orbitron;letter-spacing:3px;box-shadow:0 0 15px #00f7ff55}
+.logo{width:90px;height:90px;margin:22px auto;display:grid;place-items:center;border-radius:22px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));font:900 2.2rem Orbitron;box-shadow:0 0 25px #00f7ff99,0 0 45px #ff00cc55;animation:pulse 3s infinite}
+h1{font:900 clamp(2.3rem,7vw,5rem) Orbitron;text-transform:uppercase;letter-spacing:3px;background:linear-gradient(90deg,var(--cyan),#fff,var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nickname{margin-top:10px;color:var(--yellow);font:700 1rem Orbitron;letter-spacing:4px;text-shadow:0 0 12px #ffe600}
+.subtitle{max-width:760px;margin:22px auto 0;color:var(--gray);font-size:1.1rem;line-height:1.7}
+.course{max-width:850px;margin:0 auto 50px;padding:18px 24px;text-align:center;background:#0c1020cc;border:1px solid #00f7ff55;border-radius:15px;backdrop-filter:blur(8px);box-shadow:0 0 30px #00f7ff0d}
+.course span{color:var(--cyan);font-family:Orbitron;font-weight:700;letter-spacing:2px}
+.section-title{text-align:center;margin-bottom:28px}
+.section-title h2{font:800 1.8rem Orbitron;letter-spacing:3px;text-shadow:0 0 15px #00f7ff}
+.section-title p{color:var(--gray);margin-top:8px}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px}
+.card{background:linear-gradient(145deg,#0d1224f2,#080a14f2);border:1px solid #00f7ff44;border-radius:20px;overflow:hidden;transition:.35s;box-shadow:0 15px 35px #0008}
+.card:hover{transform:translateY(-10px);border-color:var(--cyan);box-shadow:0 0 25px #00f7ff44,0 20px 45px #000}
+.card:nth-child(2):hover{border-color:var(--pink);box-shadow:0 0 25px #ff00cc44,0 20px 45px #000}
+.cover{width:100%;height:230px;object-fit:cover;display:block;border-bottom:1px solid #ffffff15}
+.card-content{padding:25px}
+.card h3{font:800 1.3rem Orbitron;margin-bottom:12px}
+.card p{color:var(--gray);line-height:1.7;min-height:82px;margin-bottom:20px}
+.tech{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tech span{padding:5px 10px;border-radius:5px;font-size:.75rem;color:var(--cyan);background:#00f7ff0d;border:1px solid #00f7ff44}
+.card:nth-child(2) .tech span{color:var(--pink);border-color:#ff00cc44;background:#ff00cc0d}
+.btn{display:block;text-align:center;padding:13px 18px;border-radius:8px;text-decoration:none;font:800 .9rem Orbitron;letter-spacing:1px;color:#050510;background:linear-gradient(90deg,var(--cyan),#00aaff);box-shadow:0 0 15px #00f7ff44;transition:.3s}
+.btn:hover{transform:scale(1.03);box-shadow:0 0 25px #00f7ff99}
+.card:nth-child(2) .btn{color:#fff;background:linear-gradient(90deg,var(--pink),var(--purple));box-shadow:0 0 15px #ff00cc44}
+.all-projects{display:flex;justify-content:center;margin:45px 0 10px}
+.all-projects a{padding:15px 30px;border:1px solid var(--yellow);border-radius:8px;color:var(--yellow);text-decoration:none;font:800 .9rem Orbitron;letter-spacing:2px;box-shadow:0 0 15px #ffe60033;transition:.3s}
+.all-projects a:hover{background:#ffe600;color:#050510;box-shadow:0 0 25px #ffe60099;transform:translateY(-3px)}
+footer{text-align:center;margin-top:55px;padding-top:25px;border-top:1px solid #ffffff12;color:var(--gray)}
+footer strong{color:var(--cyan)}
+@media(max-width:600px){
+ .container{width:92%;padding-top:20px}.logo{width:75px;height:75px;font-size:1.8rem}
+ .projects{grid-template-columns:1fr}.cover{height:200px}.card-content{padding:22px}
+ h1{letter-spacing:1px}.subtitle{font-size:1rem}
+}
+</style>
 </head>
 
-
 <body>
-
 <div class="container">
 
+<header>
+  <div class="badge">&lt; GAMING PORTFOLIO /&gt;</div>
+  <div class="logo">JZ</div>
+  <h1>Jhonny Zaruma</h1>
+  <div class="nickname">@JHONNYDEV</div>
+  <p class="subtitle">
+    Bienvenido a mi portafolio gamer. Este menú contiene los proyectos
+    desarrollados por mí durante mi formación en desarrollo web y videojuegos.
+  </p>
+</header>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-
-    <header>
-
-        <div class="tag">
-            &lt; DEVELOPER /&gt;
-        </div>
-
-        <div class="logo">
-            JZ
-        </div>
-
-        <h1>
-            Jhonny Zaruma
-        </h1>
-
-        <div class="nickname">
-            @JHONNYDEV
-        </div>
-
-        <p class="subtitle">
-            Bienvenido a mi portafolio gamer.  
-            Este menú contiene los proyectos desarrollados
-            durante mi formación en desarrollo web y videojuegos.
-        </p>
-
-    </header>
-
-
-    <!-- =========================
-         CURSO
-    ========================== -->
-
-    <div class="course">
-
-        🚀 Proyecto desarrollado durante el curso
-
-        <span>KRAKEDEV</span>
-
-        utilizando HTML5, CSS3 y JavaScript.
-
-    </div>
-
-
-    <!-- =========================
-         PROYECTOS
-    ========================== -->
-
-    <section>
-
-        <div class="projects-title">
-
-            <h2>
-                🎮 MIS PROYECTOS
-            </h2>
-
-            <p>
-                Selecciona un proyecto para comenzar
-            </p>
-
-        </div>
-
-
-        <div class="projects">
-
-
-            <!-- JUEGO LIMONES -->
-
-            <article class="card">
-
-                <div class="game-icon">
-                    🍋
-                </div>
-
-                <h3>
-                    ATRAPAR LIMONES
-                </h3>
-
-                <p>
-                    Juego arcade donde el jugador controla
-                    una canasta para atrapar limones que
-                    caen del cielo. Incluye sistema de
-                    puntaje, vidas y dificultad progresiva.
-                </p>
-
-                <div class="tech">
-
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-
-                </div>
-
-                <a
-                    href="https://juego-limones-6qh2.vercel.app/"
-                    target="_blank"
-                    class="btn"
-                >
-                    ▶ JUGAR AHORA
-                </a>
-
-            </article>
-
-
-            <!-- JUEGO CAZANDO -->
-
-            <article class="card">
-
-                <div class="game-icon">
-                    🐱
-                </div>
-
-                <h3>
-                    JUEGO CAZANDO
-                </h3>
-
-                <p>
-                    Juego de un gato cazando su comida.
-                    El jugador debe ayudar al gato a
-                    atrapar sus presas haciendo clic
-                    sobre ellas antes de que desaparezcan.
-                </p>
-
-                <div class="tech">
-
-                    <span>HTML5</span>
-                    <span>CSS3</span>
-                    <span>JavaScript</span>
-
-                </div>
-
-                <a
-                    href="https://juego-cazando-hbbr.vercel.app/"
-                    target="_blank"
-                    class="btn"
-                >
-                    ▶ JUGAR AHORA
-                </a>
-
-            </article>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <p>
-            © 2026
-            <strong>Jhonny Zaruma</strong>
-            · <strong>jhonnydev</strong>
-        </p>
-
-        <p>
-            Portafolio desarrollado en KRAKEDEV 🎮
-        </p>
-
-    </footer>
-
-
+<div class="course">
+  🚀 Proyectos desarrollados durante el curso <span>KRAKEDEV</span>
+  utilizando HTML5, CSS3 y JavaScript.
 </div>
 
+<section id="proyectos">
+  <div class="section-title">
+    <h2>🎮 MIS PROYECTOS</h2>
+    <p>Selecciona un proyecto y entra al juego</p>
+  </div>
+
+  <div class="projects">
+
+    <article class="card">
+      <img class="cover" src="portada-limones.svg" alt="Portada del juego Atrapar Limones">
+      <div class="card-content">
+        <h3>🍋 ATRAPAR LIMONES</h3>
+        <p>Juego arcade donde el jugador controla una canasta para atrapar limones que caen del cielo. Incluye puntaje, vidas y dificultad progresiva.</p>
+        <div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+        <a class="btn" href="https://juego-limones-6qh2.vercel.app/" target="_blank" rel="noopener">▶ JUGAR AHORA</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="cover" src="portada-cazando.svg" alt="Portada del Juego Cazando">
+      <div class="card-content">
+        <h3>🐱 JUEGO CAZANDO</h3>
+        <p>Juego de un gato cazando su comida. El jugador debe ayudar al gato a atrapar sus presas antes de que desaparezcan y conseguir puntos.</p>
+        <div class="tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+        <a class="btn" href="https://juego-cazando-hbbr.vercel.app/" target="_blank" rel="noopener">▶ JUGAR AHORA</a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="all-projects">
+    <a href="#proyectos">⚡ VER TODOS LOS PROYECTOS</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong>Jhonny Zaruma</strong> · <strong>jhonnydev</strong></p>
+  <p>Portafolio desarrollado en KRAKEDEV 🎮</p>
+</footer>
+
+</div>
 </body>
 </html>
